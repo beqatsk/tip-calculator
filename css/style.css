@@ -36,7 +36,8 @@ body {
   border-radius: 10px;
   padding: 10px;
 }
-.number {
+.number,
+.symbol {
   width: 101px;
   height: 64px;
   font-size: 40px;
