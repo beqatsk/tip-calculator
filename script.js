@@ -5,41 +5,33 @@ const deleteBtn = document.querySelector(".delete");
 const reset = document.querySelector(".reset");
 const equals = document.querySelector(".equals");
 
-let displayInput = [];
-let inputValue = 0;
-let buttonValue = 0;
-
-display.addEventListener("input", (event) => {
-  inputValue = Number(event.target.value);
-  displayInput.push(inputValue);
-  console.log(displayInput);
-});
+//let displayInput = [];
+let inputValue = "";
 
 numbers.forEach((item) => {
   item.addEventListener("click", (event) => {
-    buttonValue = Number(event.target.innerText);
-    displayInput.push(buttonValue);
-    // console.log(displayInput);
+    inputValue += event.target.innerText;
+    display.value = inputValue;
   });
 });
 symbols.forEach((item) => {
   item.addEventListener("click", (event) => {
-    buttonValue = Number(event.target.innerText);
-    displayInput.push(buttonValue);
-    //console.log(buttonValue);
+    inputValue += event.target.innerText.replace("x", "*");
+    display.value = inputValue;
   });
 });
 
 deleteBtn.addEventListener("click", () => {
-  displayInput.pop();
-  // console.log(displayInput);
+  inputValue = inputValue.slice(0, inputValue.length - 1);
+  display.value = inputValue;
 });
 
 reset.addEventListener("click", () => {
-  displayInput = [];
-  console.log(displayInput);
+  inputValue = "";
+  display.value = inputValue;
 });
 
 equals.addEventListener("click", () => {
-  displayInput = eval(displayInput);
+  inputValue = eval(inputValue).toString();
+  display.value = inputValue;
 });
