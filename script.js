@@ -5,7 +5,6 @@ const deleteBtn = document.querySelector(".delete");
 const reset = document.querySelector(".reset");
 const equals = document.querySelector(".equals");
 
-//let displayInput = [];
 let inputValue = "";
 
 numbers.forEach((item) => {
